@@ -6,6 +6,8 @@
  * Containers are iterated with .walk* methods.
  * Rules are actually selectors.
  * Decls are actually css rules (keys prop, value).
+ *
+ * @see  http://api.postcss.org/AtRule.html#walkRules
  */
 
 const {plugin} = require('postcss');
