@@ -1,0 +1,4 @@
+.relative
+{
+  composes: url-decl from './lib/nested.css';
+}

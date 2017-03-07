@@ -1,0 +1,9 @@
+/* should be './lib/reset1.css' */
+@import url('./lib/reset1.css');
+/* should be './lib/reset2.css' */
+@import './lib/reset2.css';
+._nested_url-decl {
+    /* should be ./lib/spin-icon.svg */
+    background: url(./lib/spin-icon.svg) 0 0 no-repeat
+}
+._source_relative {}

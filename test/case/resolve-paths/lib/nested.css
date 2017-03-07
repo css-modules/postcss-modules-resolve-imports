@@ -1,0 +1,10 @@
+/* should be './lib/reset1.css' */
+@import url('./reset1.css');
+/* should be './lib/reset2.css' */
+@import './reset2.css';
+
+.url-decl
+{
+  /* should be ./lib/spin-icon.svg */
+  background: url(./spin-icon.svg) 0 0 no-repeat;
+}
