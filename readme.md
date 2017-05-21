@@ -8,6 +8,9 @@ Transforms:
 :import("library/button.css") {
   i__imported_button_0: button;
 }
+:export {
+  continueButton: _source_continueButton i__imported_button_0;
+}
 ._source_continueButton {
   color: green;
 }
