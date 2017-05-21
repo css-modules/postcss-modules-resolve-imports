@@ -30,8 +30,8 @@ function setup(...plugins) {
 
     return {
       exports: lazyResult.root.exports,
-      expected,
-      resulting: lazyResult.css,
+      expected: expected.replace(/\r/g, ''),
+      resulting: lazyResult.css.replace(/\r/g, ''),
       source,
     };
   }
