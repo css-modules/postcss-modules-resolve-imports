@@ -1,11 +1,11 @@
-:export {
+:export
+{
   continueButton: _source_continueButton;
-  userInput: _source_userInput
-}
-/* imported from source.css */
-._source_continueButton {
-  color: green
-}
-._source_userInput {
+  userInput: _source_userInput;
+}/* imported from source.css */._source_continueButton
+{
+  color: green;
+}._source_userInput
+{
   /**/
 }
