@@ -4,13 +4,16 @@ const {readFileSync} = require('fs');
 const {basename, resolve} = require('path');
 const postcss = require('postcss');
 
+const cssmodulesLocalByDefault = require('postcss-modules-local-by-default');
+const cssmodulesExtractImports = require('postcss-modules-extract-imports');
 const cssmodulesScope = require('postcss-modules-scope');
+const cssmodulesResolveImports = require('../index.js');
 
 const LOADER = {
-  'local-by-default': () => require('postcss-modules-local-by-default'),
-  'extract-imports': () => require('postcss-modules-extract-imports'),
+  'local-by-default': () => cssmodulesLocalByDefault,
+  'extract-imports': () => cssmodulesExtractImports,
   scope: () => new cssmodulesScope({generateScopedName}),
-  self: () => require('../index.js'),
+  self: () => cssmodulesResolveImports,
 };
 
 module.exports = setup;
@@ -24,15 +27,12 @@ function setup(...plugins) {
   function setupCase(directory) {
     const runner = postcss(loadedPlugins);
     const sourcepath = resolve(directory, 'source.css');
-    const expectedpath = resolve(directory, 'expected.css');
 
     const source = readFileSync(sourcepath, 'utf8');
-    const expected = readFileSync(expectedpath, 'utf8');
     const lazyResult = runner.process(source, {from: sourcepath});
 
     return {
       exports: lazyResult.root.exports,
-      expected: expected.replace(/\r/g, ''),
       resulting: lazyResult.css.replace(/\r/g, ''),
       source,
     };
