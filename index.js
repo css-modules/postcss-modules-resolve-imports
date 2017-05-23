@@ -1,3 +1,3 @@
 'use strict';
 
-module.exports = require('./sync');
+module.exports = require('./lib/sync');
