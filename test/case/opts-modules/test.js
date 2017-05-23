@@ -3,10 +3,9 @@
 const {resolve} = require('path');
 const resolveImports = require('../../../index');
 const setup = require('../../setup');
-const test = require('tape');
 
-test('opts-modules', t => {
-  const {expected, resulting, exports: tokens} = setup(
+test('opts-modules', () => {
+  const {resulting, exports: tokens} = setup(
     'local-by-default',
     'extract-imports',
     'scope',
@@ -17,7 +16,6 @@ test('opts-modules', t => {
     })
   )(__dirname);
 
-  t.equal(resulting, expected);
-  t.deepEqual(tokens, {continueButton: '_source_continueButton _index_button'});
-  t.end();
+  expect(resulting).toMatchSnapshot();
+  expect(tokens).toMatchSnapshot();
 });

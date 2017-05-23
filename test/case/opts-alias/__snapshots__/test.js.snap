@@ -1,0 +1,18 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`opts-alias 1`] = `
+"/* imported from lib/button/button.css */._button_button
+{
+  /*common button styles*/
+}/* imported from source.css */._source_continueButton
+{
+  color: green;
+}
+"
+`;
+
+exports[`opts-alias 2`] = `
+Object {
+  "continueButton": "_source_continueButton _button_button",
+}
+`;

@@ -1,0 +1,20 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`resolve-nested-imports 1`] = `
+"/* imported from lib/color.css */._color_green
+{
+  color: green;
+}/* imported from lib/button/button.css */._button_button
+{
+  /*common button styles*/
+}/* imported from source.css */._source_continueButton
+{
+}
+"
+`;
+
+exports[`resolve-nested-imports 2`] = `
+Object {
+  "continueButton": "_source_continueButton _button_button _color_green",
+}
+`;

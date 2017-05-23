@@ -4,10 +4,12 @@ const {readFileSync} = require('fs');
 const {basename, resolve} = require('path');
 const postcss = require('postcss');
 
+const cssmodulesScope = require('postcss-modules-scope');
+
 const LOADER = {
   'local-by-default': () => require('postcss-modules-local-by-default'),
   'extract-imports': () => require('postcss-modules-extract-imports'),
-  scope: () => new require('postcss-modules-scope')({generateScopedName}),
+  scope: () => new cssmodulesScope({generateScopedName}),
   self: () => require('../index.js'),
 };
 

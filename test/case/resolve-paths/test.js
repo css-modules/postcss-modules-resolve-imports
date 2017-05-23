@@ -1,16 +1,14 @@
 'use strict';
 
 const setup = require('../../setup');
-const test = require('tape');
 
-test('resolve-paths', t => {
-  const {expected, resulting} = setup(
+test('resolve-paths', () => {
+  const {resulting} = setup(
     'local-by-default',
     'extract-imports',
     'scope',
     'self'
   )(__dirname);
 
-  t.equal(resulting, expected);
-  t.end();
+  expect(resulting).toMatchSnapshot();
 });

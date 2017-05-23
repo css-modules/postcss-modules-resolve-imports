@@ -1,0 +1,10 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`identity 1`] = `
+".selector
+{
+  /* test for setupCase without plugins */
+  rule: value;
+}
+"
+`;

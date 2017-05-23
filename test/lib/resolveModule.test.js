@@ -11,69 +11,60 @@ const {
   resolveModule,
 } = require('../../lib/resolveModule');
 const {parse, resolve} = require('path');
-const test = require('tape');
 
-test('applyAliases', t => {
-  t.equal(applyAliases('a'), 'a');
-  t.equal(applyAliases('a', {a: 'b'}), 'b');
-  t.end();
+test('applyAliases', () => {
+  expect(applyAliases('a')).toBe('a');
+  expect(applyAliases('a', {a: 'b'})).toBe('b');
 });
 
-test('isDirectory', t => {
-  t.ok(isDirectory(__dirname));
-  t.notOk(isDirectory(`${__dirname}fake`));
-  t.end();
+test('isDirectory', () => {
+  expect(isDirectory(__dirname)).toBe(true);
+  expect(isDirectory(`${__dirname}fake`)).toBe(false);
 });
 
-test('isFile', t => {
-  t.ok(isFile(resolve(__dirname, 'resolveModule.test.js')));
-  t.notOk(isFile(resolve(__dirname, 'fake.js')));
-  t.end();
+test('isFile', () => {
+  expect(isFile(resolve(__dirname, 'resolveModule.test.js'))).toBe(true);
+  expect(isFile(resolve(__dirname, 'fake.js'))).toBe(false);
 });
 
-test('isNodeModule', t => {
-  t.notOk(isNodeModule('.'));
-  t.notOk(isNodeModule('..'));
-  t.notOk(isNodeModule('../awesome.css'));
-  t.notOk(isNodeModule('./awesome.css'));
-  t.notOk(isNodeModule('/'));
-  t.notOk(isNodeModule('C:\\my-dir'));
-  t.notOk(isNodeModule('d:\\my-dir'));
-  t.ok(isNodeModule('@sullenor/eslint-config'));
-  t.ok(isNodeModule('lodash'));
-  t.ok(isNodeModule('lodash/curry'));
-  t.end();
+test('isNodeModule', () => {
+  expect(isNodeModule('.')).toBe(false);
+  expect(isNodeModule('..')).toBe(false);
+  expect(isNodeModule('../awesome.css')).toBe(false);
+  expect(isNodeModule('./awesome.css')).toBe(false);
+  expect(isNodeModule('/')).toBe(false);
+  expect(isNodeModule('C:\\my-dir')).toBe(false);
+  expect(isNodeModule('d:\\my-dir')).toBe(false);
+  expect(isNodeModule('@sullenor/eslint-config')).toBe(true);
+  expect(isNodeModule('lodash')).toBe(true);
+  expect(isNodeModule('lodash/curry')).toBe(true);
 });
 
-test('nodeModulesPaths', t => {
+test('nodeModulesPaths', () => {
   const parsed = parse(__dirname);
   const paths = nodeModulesPaths(__dirname);
 
-  t.equal(paths[0], resolve(__dirname, 'node_modules'));
-  t.equal(paths[paths.length - 1], resolve(parsed.root, 'node_modules'));
-  t.end();
+  expect(paths[0]).toBe(resolve(__dirname, 'node_modules'));
+  expect(paths[paths.length - 1]).toBe(resolve(parsed.root, 'node_modules'));
 });
 
-test('resolveAsDir', t => {
-  t.equal(resolveAsDir(resolve(__dirname, 'node_modules/awesome')),
-    resolve(__dirname, 'node_modules/awesome/index.css'));
-  t.equal(resolveAsDir(resolve(__dirname, 'node_modules/main')),
-    resolve(__dirname, 'node_modules/main/main.css'));
-  t.end();
+test('resolveAsDir', () => {
+  expect(resolveAsDir(resolve(__dirname, 'node_modules/awesome')))
+    .toBe(resolve(__dirname, 'node_modules/awesome/index.css'));
+  expect(resolveAsDir(resolve(__dirname, 'node_modules/main')))
+    .toBe(resolve(__dirname, 'node_modules/main/main.css'));
 });
 
-test('resolveAsFile', t => {
-  t.equal(resolveAsFile(resolve(__dirname, 'node_modules/awesome/index'), ['.css']),
-    resolve(__dirname, 'node_modules/awesome/index.css'));
-  t.end();
+test('resolveAsFile', () => {
+  expect(resolveAsFile(resolve(__dirname, 'node_modules/awesome/index'), ['.css']))
+    .toBe(resolve(__dirname, 'node_modules/awesome/index.css'));
 });
 
-test('resolveModule', t => {
-  t.equal(resolveModule('awesome', {cwd: __dirname}),
-    resolve(__dirname, 'node_modules/awesome/index.css'));
-  t.equal(resolveModule('awesome/index.css', {cwd: __dirname}),
-    resolve(__dirname, 'node_modules/awesome/index.css'));
-  t.equal(resolveModule('main', {cwd: __dirname}),
-    resolve(__dirname, 'node_modules/main/main.css'));
-  t.end();
+test('resolveModule', () => {
+  expect(resolveModule('awesome', {cwd: __dirname}))
+    .toBe(resolve(__dirname, 'node_modules/awesome/index.css'));
+  expect(resolveModule('awesome/index.css', {cwd: __dirname}))
+    .toBe(resolve(__dirname, 'node_modules/awesome/index.css'));
+  expect(resolveModule('main', {cwd: __dirname}))
+    .toBe(resolve(__dirname, 'node_modules/main/main.css'));
 });

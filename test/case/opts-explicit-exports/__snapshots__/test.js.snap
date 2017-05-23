@@ -1,0 +1,23 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`opts-explicit-exports 1`] = `
+":export
+{
+  continueButton: _source_continueButton;
+  userInput: _source_userInput;
+}/* imported from source.css */._source_continueButton
+{
+  color: green;
+}._source_userInput
+{
+  /**/
+}
+"
+`;
+
+exports[`opts-explicit-exports 2`] = `
+Object {
+  "continueButton": "_source_continueButton",
+  "userInput": "_source_userInput",
+}
+`;

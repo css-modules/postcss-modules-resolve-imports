@@ -8,7 +8,7 @@
   },
   "scripts": {
     "fix": "eslint --fix {lib,test}/**/*.js *.js",
-    "test": "tape test/**/*.test.js && tape test/**/test.js"
+    "test": "jest"
   },
   "repository": {
     "type": "git",
@@ -22,6 +22,9 @@
   },
   "homepage": "https://github.com/css-modules/postcss-modules-resolve-imports#readme",
   "eslintConfig": {
+    "env": {
+      "jest": true
+    },
     "extends": "@sullenor/eslint-config/node"
   },
   "peerDependencies": {
@@ -30,11 +33,11 @@
   "devDependencies": {
     "@sullenor/eslint-config": "^1.0.11",
     "eslint": "^3",
+    "jest": "^20.0.3",
     "postcss": "^6.0.1",
     "postcss-modules-extract-imports": "^1.1.0",
     "postcss-modules-local-by-default": "^1.2.0",
-    "postcss-modules-scope": "^1.1.0",
-    "tape": "^4.6.3"
+    "postcss-modules-scope": "^1.1.0"
   },
   "dependencies": {
     "css-selector-tokenizer": "^0.7.0"
