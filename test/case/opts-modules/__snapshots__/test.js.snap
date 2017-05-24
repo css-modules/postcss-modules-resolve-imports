@@ -1,10 +1,16 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`opts-modules 1`] = `
-"/* imported from lib/button/index.css */._index_button
+"/* imported from lib/button/index.css */
+
+._index_button
 {
   /*common button styles*/
-}/* imported from source.css */._source_continueButton
+}
+
+/* imported from source.css */
+
+._source_continueButton
 {
   color: green;
 }

@@ -1,24 +1,46 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`resolve-multiple-imports 1`] = `
-"/* imported from b.css */._b_aa
+"/* imported from b.css */
+
+._b_aa
 {
   /**/
-}._b_bb
+}
+
+._b_bb
 {
   /**/
-}/* imported from c.css */._c_aa
+}
+
+/* imported from c.css */
+
+._c_aa
 {
   /**/
-}._c_bb
+}
+
+._c_bb
 {
-}/* imported from a.css */._a_aa
+}
+
+/* imported from a.css */
+
+._a_aa
 {
-}._a_bb
+}
+
+._a_bb
 {
-}/* imported from source.css */._source_resultA
+}
+
+/* imported from source.css */
+
+._source_resultA
 {
-}._source_resultB
+}
+
+._source_resultB
 {
 }
 "

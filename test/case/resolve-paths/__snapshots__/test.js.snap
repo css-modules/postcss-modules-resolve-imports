@@ -1,13 +1,32 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`resolve-paths 1`] = `
-"/*  imported from lib/nested.css  *//* should be './lib/reset1.css' */@import url('./lib/reset1.css');/* should be './lib/reset2.css' */@import './lib/reset2.css';/* should be 'lib/anything-non-root1' */@import url('lib/anything-non-root1');/* should be 'lib/anything-non-root2' */@import 'lib/anything-non-root2';/* should be '/root-based1' */@import url('/root-based1');/* should be '/root-based2' */@import '/root-based2';._nested_url-decl
+"/*  imported from lib/nested.css  */
+
+/* should be './lib/reset1.css' */
+@import url('./lib/reset1.css');
+/* should be './lib/reset2.css' */
+@import './lib/reset2.css';
+/* should be 'lib/anything-non-root1' */
+@import url('lib/anything-non-root1');
+/* should be 'lib/anything-non-root2' */
+@import 'lib/anything-non-root2';
+/* should be '/root-based1' */
+@import url('/root-based1');
+/* should be '/root-based2' */
+@import '/root-based2';
+
+._nested_url-decl
 {
   /* should be ./lib/spin-icon1.svg */
   background: url(./lib/spin-icon1.svg) 0 0 no-repeat;
   /* should be ./lib/spin-icon2.svg */
   background: url('./lib/spin-icon2.svg') 0 0 no-repeat;
-}/*  imported from source.css  */._source_relative
+}
+
+/*  imported from source.css  */
+
+._source_relative
 {
 }
 "

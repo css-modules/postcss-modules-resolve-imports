@@ -1,10 +1,16 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`resolve-package-main 1`] = `
-"/* imported from button/my-awesome-button.css */._my-awesome-button_button
+"/* imported from button/my-awesome-button.css */
+
+._my-awesome-button_button
 {
   /*common button styles*/
-}/* imported from source.css */._source_continueButton
+}
+
+/* imported from source.css */
+
+._source_continueButton
 {
   color: green;
 }
