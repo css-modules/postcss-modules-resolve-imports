@@ -1,0 +1,23 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`opts-main-file 1`] = `
+"/*  imported from lib/a.css  */
+
+._a_a
+{
+  color: yellow;
+}
+
+/*  imported from source.css  */
+
+._source_b
+{
+}
+"
+`;
+
+exports[`opts-main-file 2`] = `
+Object {
+  "b": "_source_b _a_a",
+}
+`;
