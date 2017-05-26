@@ -105,6 +105,11 @@ Provide additional directories to check the modules in. Should be absolute paths
 ```
 
 
+`resolve.mainFile` `string`
+
+Specifies the default filename to be used while resolving directories. Default: `index.css`.
+
+
 ## Reference Guides
 
 - Interoperable CSS: https://github.com/css-modules/icss
