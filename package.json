@@ -37,9 +37,11 @@
     "postcss": "^6.0.1",
     "postcss-modules-extract-imports": "^1.1.0",
     "postcss-modules-local-by-default": "^1.2.0",
-    "postcss-modules-scope": "^1.1.0"
+    "postcss-modules-scope": "^1.1.0",
+    "postcss-icss-values": "2.0.1"
   },
   "dependencies": {
-    "css-selector-tokenizer": "^0.7.0"
+    "css-selector-tokenizer": "^0.7.0",
+    "icss-utils": "^3.0.1"
   }
 }

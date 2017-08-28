@@ -1,0 +1,26 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`resolve-readme-example 1`] = `
+":export
+{
+  green: #00FF00;
+  localname: red;
+}
+
+/*  imported from node_modules/library/variable.css  */
+
+/*  imported from source.css  */
+
+.red
+{
+  color: #00FF00;
+}
+"
+`;
+
+exports[`resolve-readme-example 2`] = `
+Object {
+  "green": "#00FF00",
+  "localname": "red",
+}
+`;
