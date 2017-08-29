@@ -24,9 +24,9 @@ function setup(...plugins) {
 
   return setupCase;
 
-  function setupCase(directory) {
+  function setupCase(directory, file) {
     const runner = postcss(loadedPlugins);
-    const sourcepath = resolve(directory, 'source.css');
+    const sourcepath = resolve(directory, file || 'source.css');
 
     const source = readFileSync(sourcepath, 'utf8');
     const lazyResult = runner.process(source, {from: sourcepath});

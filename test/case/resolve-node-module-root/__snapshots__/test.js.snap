@@ -1,0 +1,73 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`resolve-node-module root defaults to dirname(file) 1`] = `
+"/*  imported from node_modules/button/background.css  */
+
+._background_background {
+  background: red;
+}
+
+/*  imported from node_modules/button/button.css  */
+
+._button_button {
+  font-size: 1em;
+}
+
+/*  imported from source.css  */
+
+._source_test {
+  color: white;
+}
+"
+`;
+
+exports[`resolve-node-module root defaults to dirname(file) 2`] = `
+"/*  imported from background.css  */
+
+._background_background {
+  background: red;
+}
+
+/*  imported from button.css  */
+
+._button_button {
+  font-size: 1em;
+}
+"
+`;
+
+exports[`resolve-node-module root process.cwd 1`] = `
+"/*  imported from test/case/resolve-node-module-root/node_modules/button/background.css  */
+
+._background_background {
+  background: red;
+}
+
+/*  imported from test/case/resolve-node-module-root/node_modules/button/button.css  */
+
+._button_button {
+  font-size: 1em;
+}
+
+/*  imported from test/case/resolve-node-module-root/source.css  */
+
+._source_test {
+  color: white;
+}
+"
+`;
+
+exports[`resolve-node-module root process.cwd 2`] = `
+"/*  imported from test/case/resolve-node-module-root/node_modules/button/background.css  */
+
+._background_background {
+  background: red;
+}
+
+/*  imported from test/case/resolve-node-module-root/node_modules/button/button.css  */
+
+._button_button {
+  font-size: 1em;
+}
+"
+`;
