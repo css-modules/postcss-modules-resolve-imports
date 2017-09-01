@@ -110,6 +110,12 @@ Provide additional directories to check the modules in. Should be absolute paths
 Specifies the default filename to be used while resolving directories. Default: `index.css`.
 
 
+`resolve.preserveSymlinks` `boolean`
+
+Wether to resolve symlinks in paths. Defaults to nodejs behaviour: `false`, 
+(parsed from `--preserve-symlinks` or environment variable `PRESERVE_SYMLINKS`).
+
+
 ## Reference Guides
 
 - Interoperable CSS: https://github.com/css-modules/icss

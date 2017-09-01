@@ -1,0 +1,5 @@
+.continueButton
+{
+  composes: button from 'button';
+  color: green;
+}
