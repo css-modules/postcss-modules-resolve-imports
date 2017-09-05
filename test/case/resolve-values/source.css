@@ -1,0 +1,6 @@
+@value green, localname from "library/variable.css";
+
+.localname
+{
+  color: green;
+}

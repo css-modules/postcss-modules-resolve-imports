@@ -41,6 +41,8 @@
     "postcss-modules-scope": "^1.1.0"
   },
   "dependencies": {
-    "css-selector-tokenizer": "^0.7.0"
+    "css-selector-tokenizer": "^0.7.0",
+    "icss-utils": "^3.0.1",
+    "minimist": "^1.2.0"
   }
 }

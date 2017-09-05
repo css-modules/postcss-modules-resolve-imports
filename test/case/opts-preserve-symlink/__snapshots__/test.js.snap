@@ -1,0 +1,67 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`opts-preserve-symlinks default false 1`] = `
+"/*  imported from lib/button/index.css  */
+
+._index_button {
+  color: green;
+}
+
+/*  imported from source.css  */
+
+._source_continueButton
+{
+  color: green;
+}
+"
+`;
+
+exports[`opts-preserve-symlinks default false 2`] = `
+Object {
+  "continueButton": "_source_continueButton _index_button",
+}
+`;
+
+exports[`opts-preserve-symlinks false 1`] = `
+"/*  imported from lib/button/index.css  */
+
+._index_button {
+  color: green;
+}
+
+/*  imported from source.css  */
+
+._source_continueButton
+{
+  color: green;
+}
+"
+`;
+
+exports[`opts-preserve-symlinks false 2`] = `
+Object {
+  "continueButton": "_source_continueButton _index_button",
+}
+`;
+
+exports[`opts-preserve-symlinks true 1`] = `
+"/*  imported from node_modules/button/index.css  */
+
+._index_button {
+  color: green;
+}
+
+/*  imported from source.css  */
+
+._source_continueButton
+{
+  color: green;
+}
+"
+`;
+
+exports[`opts-preserve-symlinks true 2`] = `
+Object {
+  "continueButton": "_source_continueButton _index_button",
+}
+`;

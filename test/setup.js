@@ -7,9 +7,11 @@ const postcss = require('postcss');
 const cssmodulesLocalByDefault = require('postcss-modules-local-by-default');
 const cssmodulesExtractImports = require('postcss-modules-extract-imports');
 const cssmodulesScope = require('postcss-modules-scope');
+const cssmodulesValues = require('postcss-icss-values');
 const cssmodulesResolveImports = require('../index.js');
 
 const LOADER = {
+  values: () => cssmodulesValues,
   'local-by-default': () => cssmodulesLocalByDefault,
   'extract-imports': () => cssmodulesExtractImports,
   scope: () => new cssmodulesScope({generateScopedName}),
