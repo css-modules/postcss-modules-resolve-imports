@@ -1,0 +1,4 @@
+.test {
+  composes: button from "button/button.css";
+  color: white;
+}

@@ -31,3 +31,35 @@ exports[`resolve-paths 1`] = `
 }
 "
 `;
+
+exports[`resolve-paths custom root 1`] = `
+"/*  imported from test/case/resolve-paths/lib/nested.css  */
+
+/* should be './lib/reset1.css' */
+@import url('./test/case/resolve-paths/lib/reset1.css');
+/* should be './lib/reset2.css' */
+@import './test/case/resolve-paths/lib/reset2.css';
+/* should be 'lib/anything-non-root1' */
+@import url('test/case/resolve-paths/lib/anything-non-root1');
+/* should be 'lib/anything-non-root2' */
+@import 'test/case/resolve-paths/lib/anything-non-root2';
+/* should be '/root-based1' */
+@import url('/root-based1');
+/* should be '/root-based2' */
+@import '/root-based2';
+
+._nested_url-decl
+{
+  /* should be ./lib/spin-icon1.svg */
+  background: url(./test/case/resolve-paths/lib/spin-icon1.svg) 0 0 no-repeat;
+  /* should be ./lib/spin-icon2.svg */
+  background: url('./test/case/resolve-paths/lib/spin-icon2.svg') 0 0 no-repeat;
+}
+
+/*  imported from test/case/resolve-paths/source.css  */
+
+._source_relative
+{
+}
+"
+`;
