@@ -32,10 +32,21 @@ function resolveImportsPlugin({icssExports, resolve = {}} = {}) {
   function resolveImports(ast, result) {
     const graph = {};
     const processor = createProcessor(result.processor.plugins);
+    const messages = result.messages;
     const rootPath = ast.source.input.file;
     const rootTree = ast.clone({nodes: []});
 
-    resolveDeps(ast, {opts: {from: rootPath, graph, resolve, rootPath, rootTree}, processor});
+    resolveDeps(ast, {
+      opts: {
+        from: rootPath,
+        graph,
+        resolve,
+        rootPath,
+        rootTree,
+      },
+      processor,
+      messages,
+    });
 
     if (icssExports) {
       const exportRule = postcss.rule({

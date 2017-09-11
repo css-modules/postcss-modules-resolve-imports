@@ -1,0 +1,5 @@
+@value color from "../color.css";
+
+.message {
+  background-color: color;
+}

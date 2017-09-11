@@ -37,6 +37,7 @@ function setup(...plugins) {
       exports: lazyResult.root.exports,
       resulting: lazyResult.css.replace(/\r/g, ''),
       source,
+      messages: lazyResult.messages,
     };
   }
 }
