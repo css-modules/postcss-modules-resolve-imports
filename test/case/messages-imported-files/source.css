@@ -1,0 +1,13 @@
+
+
+.continueMessage {
+  composes: message from './lib/button/message.css';
+}
+
+.continueMessage2 {
+  composes: message from './lib/button/message.css';
+}
+
+.continueButton {
+  composes: button from './lib/button/button.css';
+}

@@ -115,6 +115,50 @@ Specifies the default filename to be used while resolving directories. Default: 
 Wether to resolve symlinks in paths. Defaults to nodejs behaviour: `false`, 
 (parsed from `--preserve-symlinks` or environment variable `PRESERVE_SYMLINKS`).
 
+## Messages
+
+This plugin passes `result.messages` for each imported file.
+
+```css
+@value color from "./lib/colors.css";
+
+.myButton {
+  composes: button from './lib/button/button.css';
+  background-color: color;
+}
+```
+
+will output:
+
+```js
+[
+    {
+        plugin: 'postcss-modules-resolve-imports',
+        type: 'import',
+        from: '/foo/bar/lib/button/button.css'
+        file: '/foo/bar/lib/color.css',
+        exports: {
+          // variable
+          color: 'green',
+        },
+    },
+    {
+        plugin: 'postcss-modules-resolve-imports',
+        type: 'import',
+        from: '/foo/bar/source.css',
+        file: '/foo/bar/lib/button/button.css',
+        exports: {
+          // variable from colors.css
+          color: 'green',
+          // local scoped classname from button.css
+          button: '_button_button',
+        },
+    },
+]
+```
+
+You can get access to this variables in `result.messages` also
+in any plugin goes after `postcss-modules-resolve-imports`.
 
 ## Reference Guides
 

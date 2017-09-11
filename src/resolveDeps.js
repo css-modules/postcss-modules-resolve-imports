@@ -34,6 +34,7 @@ function resolveDeps(ast, result) {
   const cwd = dirname(selfPath);
   const rootDir = dirname(rootPath);
   const processor = result.processor;
+  const messages = result.messages;
   const self = graph[selfPath] = graph[selfPath] || {};
 
   self.mark = TEMPORARY_MARK;
@@ -47,6 +48,7 @@ function resolveDeps(ast, result) {
 
       const dependencyPath = RegExp.$1.replace(/['"]/g, '');
       const absDependencyPath = resolveModule(dependencyPath, {cwd, resolve});
+      let exportsMap;
 
       if (!absDependencyPath) throw new Error(
         'Can\'t resolve module path from `' +
@@ -69,10 +71,22 @@ function resolveDeps(ast, result) {
         const css = readFileSync(absDependencyPath, 'utf8');
         const lazyResult = processor.process(css, Object.assign({}, result.opts, {from: absDependencyPath}));
 
+        messages.push(...lazyResult.messages);
+
         updateTranslations(translations, lazyResult.root.exports);
+        exportsMap = lazyResult.root.exports;
       } else {
         updateTranslations(translations, graph[absDependencyPath].exports);
+        exportsMap = graph[absDependencyPath].exports;
       }
+
+      messages.push({
+        plugin: 'postcss-modules-resolve-imports',
+        type: 'import',
+        from: selfPath,
+        file: absDependencyPath,
+        exports: exportsMap,
+      });
 
       return void rule.remove();
     }
