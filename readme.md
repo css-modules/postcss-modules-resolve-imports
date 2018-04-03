@@ -32,7 +32,7 @@ into:
 
 **Note**: should be used after [postcss-modules-extract-imports](https://github.com/css-modules/postcss-modules-extract-imports) and [postcss-modules-scope](https://github.com/css-modules/postcss-modules-scope).
 
-The `postcss-moduels-resolve-imports` plugin also fixes `@import` and `url()` paths (which doesn't start from `/`) for the included modules from the different folders.
+The `postcss-modules-resolve-imports` plugin also fixes `@import` and `url()` paths (which doesn't start from `/`) for the included modules from the different folders.
 
 
 ## Options
