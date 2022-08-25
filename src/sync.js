@@ -11,13 +11,12 @@
  * @see  http://api.postcss.org/AtRule.html#walkRules
  */
 
-const {plugin} = require('postcss');
 const postcss = require('postcss');
 const resolveDeps = require('./resolveDeps');
 
-const extractPlugin = plugin('extract-plugin', () => resolveDeps);
+const extractPlugin = resolveDeps;
 
-module.exports = plugin('postcss-modules-resolve-imports', resolveImportsPlugin);
+module.exports = resolveImportsPlugin;
 
 /**
  * dangerouslyPrevailCyclicDepsWarnings
@@ -27,7 +26,12 @@ module.exports = plugin('postcss-modules-resolve-imports', resolveImportsPlugin)
  * resolve.modules
  */
 function resolveImportsPlugin({icssExports, resolve = {}} = {}) {
-  return resolveImports;
+  return {
+    postcssPlugin: 'postcss-modules-resolve-imports',
+    Once(root, {result}) {
+      resolveImports(root, result);
+    },
+  };
 
   function resolveImports(ast, result) {
     const graph = {};
@@ -73,3 +77,5 @@ function createProcessor(plugins) {
 function bySelfName(plugin) {
   return plugin.postcssPlugin === 'postcss-modules-resolve-imports';
 }
+
+module.exports.postcss = true;

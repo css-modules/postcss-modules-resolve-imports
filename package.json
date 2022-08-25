@@ -24,7 +24,7 @@
     "extends": "@sullenor/eslint-config/node"
   },
   "peerDependencies": {
-    "postcss": "^6.0.0"
+    "postcss": "^8.0.0"
   },
   "devDependencies": {
     "@sullenor/eslint-config": "^1.0.11",
@@ -34,7 +34,8 @@
     "gulp-babel": "^7.0.0",
     "gulp-debug": "^3.1.0",
     "jest": "^20.0.3",
-    "postcss": "^6.0.1",
+    "postcss": "^8.0.0",
+    "postcss-focus": "^5.0.1",
     "postcss-icss-values": "2.0.1",
     "postcss-modules-extract-imports": "^1.1.0",
     "postcss-modules-local-by-default": "^1.2.0",
